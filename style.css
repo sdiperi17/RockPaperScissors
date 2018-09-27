@@ -1,6 +1,27 @@
 body {
-    background-image: url(images/blue-halftone-comic-background_23-2147906899.jpg);
+    background-color: #ffc109;
+}
+
+.main-image {
+    background-image: url("images/59761.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0% auto;
+    height: 100vh;
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 25px;
+    margin-top: 300px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 48px;
 }
