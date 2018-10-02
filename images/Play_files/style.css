@@ -156,9 +156,6 @@ body {
     margin: 0% auto;
 }
 
-.background-playground {
-    background-image: url("images/blue-halftone-comic-background_23-2147912594.jpg");
-}
 .box1 {
     background: rgba(105, 105, 105, 0.5);
     display: inline-block;
