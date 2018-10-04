@@ -50,50 +50,71 @@ document.addEventListener("DOMContentLoaded", function() {
             PLAYER1PICK = "scissors";
         }
     });
-});
 
-// Computer Choice
+    // Computer Choice
 
-const COMPUTERROCK = document.querySelector("#computer-rock");
-const COMPUTERPAPER = document.querySelector("#computer-paper");
-const COMPUTERSCISSORS = document.querySelector("#computer-scissors");
+    const COMPUTERROCK = document.querySelector("#computer-rock");
+    const COMPUTERPAPER = document.querySelector("#computer-paper");
+    const COMPUTERSCISSORS = document.querySelector("#computer-scissors");
 
-const COMPUTERBOARD = document.querySelector(".plyr2");
+    const COMPUTERBOARD = document.querySelector(".plyr2");
 
-const PLAYBTN = document.querySelector(".start-game-btn");
+    const PLAYBTN = document.querySelector(".start-game-btn");
 
-function play() {
-    console.log("SAIDA");
-    var computerRandomPick = Math.floor(Math.random() * 3);
-    if (computerRandomPick < 1) {
-        computerRandomPick = COMPUTERROCK;
-        COMPUTERBOARD.appendChild(COMPUTERROCK);
-        COMPUTERPICK = "rock";
-    } else if (computerRandomPick > 1 && computerPick < 3) {
-        computerRandomPick = COMPUTERPAPER;
-        COMPUTERBOARD.appendChild(COMPUTERPAPER);
-        COMPUTERPICK = "paper";
-    } else {
-        computerRandomPick = COMPUTERSCISSORS;
-        COMPUTERBOARD.appendChild(COMPUTERSCISSORS);
-        COMPUTERPICK = "scissors";
-    }
-
-    var compare = function(choice1, choice2) {
-        if (choice1 === choice2) {
-            return "TIE";
-        } else if ((ROCK, COMPUTERPAPER)) {
-            return "PAPER WRAP ROCK";
-        } else if ((ROCK, SCISSORS)) {
-            return "ROCK SMASHES SCISSOR";
+    function play() {
+        var computerRandomPick = Math.floor(Math.random() * 3);
+        if (computerRandomPick < 1) {
+            computerRandomPick = COMPUTERROCK;
+            COMPUTERBOARD.appendChild(COMPUTERROCK);
+            COMPUTERPICK = "rock";
+        } else if (computerRandomPick > 1 && computerRandomPick < 3) {
+            computerRandomPick = COMPUTERPAPER;
+            COMPUTERBOARD.appendChild(COMPUTERPAPER);
+            COMPUTERPICK = "paper";
+        } else {
+            computerRandomPick = COMPUTERSCISSORS;
+            COMPUTERBOARD.appendChild(COMPUTERSCISSORS);
+            COMPUTERPICK = "scissors";
         }
-    };
-}
 
-PLAYBTN.addEventListener("click", function() {
-    play();
+        var compare = function(choice1, choice2) {
+            if (choice1 === choice2) {
+                return "IT'S A TIE";
+            }
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    // rock wins
+                    return "ROCK BREAKS SCISSORS. YOU WIN!!!";
+                } else {
+                    // paper wins
+                    return "PAPER WRAP ROCK. TRY AGAIN";
+                }
+            }
+            if (choice1 === "paper") {
+                if (choice2 === "rock") {
+                    // paper wins
+                    return "PAPER WRAP ROCK. YOU WIN!!!";
+                } else {
+                    return "SCISSORS CUT PAPER. TRY AGAIN";
+                }
+            }
+
+            if (choice1 === "scissors") {
+                if (choice === "rock") {
+                    // rock win
+                    return "ROCK BREAKS SCISSORS. TRY AGAIN";
+                } else {
+                    return "SCISSORS CUT PAPER. YOU WIN!!!";
+                }
+            }
+        };
+        console.log(compare(PLAYER1PICK, COMPUTERPICK));
+    }
+    PLAYBTN.addEventListener("click", function() {
+        play();
+    });
+    const REFRESH = document.querySelector(".fa fa-refresh fa-spin");
+    // REFRESH.addEventListener("click", function() {
+    //     console.log("Saida");
+    // });
 });
-const REFRESH = document.querySelector(".fa fa-refresh fa-spin");
-// REFRESH.addEventListener("click", function() {
-//     console.log("Saida");
-// });
