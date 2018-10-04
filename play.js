@@ -14,39 +14,47 @@ document.addEventListener("DOMContentLoaded", function() {
     let PLAYER1PICK;
     let COMPUTERPICK;
 
+    let lose;
+
     ROCK.addEventListener("click", function() {
         if (!active) {
             active = ROCK;
-            BOARD.appendChild(ROCK);
+            BOARD.appendChild(ROCK).style.width = "200px";
+            BOARD.appendChild(ROCK).style.height = "200px";
             PLAYER1PICK = "rock";
         } else {
             PICKBTNS.appendChild(active);
             active = ROCK;
-            BOARD.appendChild(ROCK);
+            BOARD.appendChild(ROCK).style.width = "200px";
+            BOARD.appendChild(ROCK).style.height = "200px";
             PLAYER1PICK = "rock";
         }
     });
     PAPER.addEventListener("click", function() {
         if (!active) {
             active = PAPER;
-            BOARD.appendChild(PAPER);
+            BOARD.appendChild(PAPER).style.width = "200px";
+            BOARD.appendChild(PAPER).style.height = "200px";
             PLAYER1PICK = "paper";
         } else {
             PICKBTNS.appendChild(active);
             active = PAPER;
-            BOARD.appendChild(PAPER);
+            BOARD.appendChild(PAPER).style.width = "200px";
+            BOARD.appendChild(PAPER).style.height = "200px";
             PLAYER1PICK = "paper";
         }
     });
     SCISSORS.addEventListener("click", function() {
         if (!active) {
             active = SCISSORS;
-            BOARD.appendChild(SCISSORS);
+            BOARD.appendChild(SCISSORS).style.width = "200px";
+            BOARD.appendChild(SCISSORS).style.height = "200px";
             PLAYER1PICK = "scissors";
         } else {
             PICKBTNS.appendChild(active);
             active = SCISSORS;
-            BOARD.appendChild(SCISSORS);
+            BOARD.appendChild(SCISSORS).style.width = "200px";
+            BOARD.appendChild(SCISSORS).style.height = "200px";
             PLAYER1PICK = "scissors";
         }
     });
@@ -65,15 +73,18 @@ document.addEventListener("DOMContentLoaded", function() {
         var computerRandomPick = Math.floor(Math.random() * 3);
         if (computerRandomPick < 1) {
             computerRandomPick = COMPUTERROCK;
-            COMPUTERBOARD.appendChild(COMPUTERROCK);
+            COMPUTERBOARD.appendChild(COMPUTERROCK).style.height = "200px";
+            COMPUTERBOARD.appendChild(COMPUTERROCK).style.width = "200px";
             COMPUTERPICK = "rock";
         } else if (computerRandomPick > 1 && computerRandomPick < 3) {
             computerRandomPick = COMPUTERPAPER;
-            COMPUTERBOARD.appendChild(COMPUTERPAPER);
+            COMPUTERBOARD.appendChild(COMPUTERPAPER).style.width = "200px";
+            COMPUTERBOARD.appendChild(COMPUTERPAPER).style.height = "200px";
             COMPUTERPICK = "paper";
         } else {
             computerRandomPick = COMPUTERSCISSORS;
-            COMPUTERBOARD.appendChild(COMPUTERSCISSORS);
+            COMPUTERBOARD.appendChild(COMPUTERSCISSORS).style.width = "200px";
+            COMPUTERBOARD.appendChild(COMPUTERSCISSORS).style.height = "200px";
             COMPUTERPICK = "scissors";
         }
 
