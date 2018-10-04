@@ -157,8 +157,9 @@ body {
 }
 
 .background-playground {
-    background-image: url("images/blue-halftone-comic-background_23-2147912594.jpg");
+    background-color: rgba(63, 127, 191);
 }
+
 .box1 {
     background: rgba(105, 105, 105, 0.5);
     display: inline-block;
@@ -227,6 +228,7 @@ h1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    box-shadow: 1px 1px 1px black;
 }
 .scoreboard > div {
     display: flex;
@@ -254,5 +256,24 @@ h1 {
 }
 
 .pick-btn {
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+#computer-rock,
+#computer-paper,
+#computer-scissors {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.start-game-btn {
+    box-shadow: 1px 1px 1px black;
+    border-radius: 20px;
+    background-color: red;
+    display: block;
+    margin: 10% auto;
+    width: 200px;
+    height: 60px;
+    font-size: 2rem;
 }

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body class="background-playground">
     <div id="game-body-flex">
         <div class="w3-xxxlarge">
             <a href="index.html">
@@ -19,32 +19,48 @@
             </a>
         </div>
         <div class="scoreboard">
-            <h1 style="background-color: red">Scoreboard</h1>
+            <h1>Scoreboard</h1>
             <div>
                 <div>
-                    <h2 style="background: blue">0</h2>
-                    <h2 class="player1" style="background: green"></h2>
-                    <h2 class="player1" style="background:blue"></h2>
+                    <h2 style="border-color :black">0</h2>
+                    <h2 class="player1"></h2>
+                    <h2 class="player1"></h2>
                 </div>
                 <div>
-                    <h2 style="background: yellow">0</h2>
-                    <h2 style="background: purple">Player2</h2>
+                    <h2>0</h2>
+                    <h2>Player2</h2>
                 </div>
             </div>
         </div>
         <div>
-
+            <i class="fa fa-refresh fa-spin" style="font-size: 3rem"></i>
         </div>
     </div>
 
     <div class="plyr1-plyr2">
-        <div class="plyr1">dsgfjdgff</div>
+        <div class="plyr1"></div>
         <div class="plyr2"></div>
     </div>
     <div class="pick-btn">
-        <img src="images/rock-click.png" alt="rock" height="50" width="50">
-        <img src="images/paper-click.png" alt="paper" height="50" width="50">
-        <img src="images/scissors-click.png" alt="scissors-click" height="50" width="50">
+        <div id="player1-btn">
+            <img id="rock" data-player1="rock" src="images/rock-click.png" alt="rock" height="100" width="100">
+            <img id="paper" data-player1="paper" src="images/paper-click.png" alt="paper" height="100" width="100">
+            <img id="scissors" data-player1="scissors" src="images/scissors-click.png" alt="scissors-click" height="100" width="100">
+        </div>
+        <div class="computer-pick">
+            <img id="computer-rock" data-computer="rock" src="images/rock-click.png" alt="rock" height="100" width="100">
+            <img id="computer-paper" data-computer="paper" src="images/paper-click.png" alt="paper" height="100" width="100">
+            <img id="computer-scissors" data-computer="scissors" src="images/scissors-click.png" alt="scissors-click" height="100" width="100">
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+    <div>
+        <button class="start-game-btn">Play</button>
     </div>
     <script src="play.js">
     </script>
