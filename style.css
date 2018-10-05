@@ -326,3 +326,27 @@ h1 {
     width: 200px;
     height: 200px;
 }
+
+.overlay {
+    position: fixed;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    top: 0%;
+    display: none;
+}
+.modal {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+.modal h1 {
+    color: black;
+    font-size: 3rem;
+}

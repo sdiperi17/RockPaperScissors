@@ -10,12 +10,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const BOARD = document.querySelector(".plyr1");
     const PICKBTNS = document.querySelector("#player1-btn");
     var active = false;
-
+    var computerRandomPick;
     let PLAYER1PICK;
     let COMPUTERPICK;
 
+    let COMPUTERPICKBOX = document.querySelector(".computer-pick");
+
     let playerScore = document.getElementById("player1-score");
     let computerScore = document.getElementById("player2-score");
+
+    let MODAL = document.querySelector(".modal");
+    let OVERLAY = document.querySelector(".overlay");
+
+    let PLAYAGAIN = document.getElementById("play-again");
 
     console.log(playerScore);
     ROCK.addEventListener("click", function() {
@@ -75,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const PLAYBTN = document.querySelector(".start-game-btn");
 
     function play() {
-        var computerRandomPick = Math.floor(Math.random() * 3);
+        computerRandomPick = Math.floor(Math.random() * 3);
         if (computerRandomPick < 1) {
             computerRandomPick = COMPUTERROCK;
             COMPUTERBOARD.appendChild(COMPUTERROCK).style.height = "200px";
@@ -94,54 +101,94 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         var compare = function(choice1, choice2) {
+            console.log(choice1, choice2);
             if (choice1 === choice2) {
-                return "IT'S A TIE";
+                MODAL.innerHTML = "";
+                MODAL.appendChild(elementCreator("h1", "IT'S A TIE"));
+                MODAL.appendChild(PLAYAGAIN);
+                return "";
             }
+            console.log("SAIDA");
             if (choice1 === "rock") {
                 if (choice2 === "scissors") {
                     // rock wins
                     playerScore.innerHTML = parseInt(playerScore.innerHTML) + 1;
-                    console.log(playerScore);
-                    return "ROCK BREAKS SCISSORS. YOU WIN!!!";
-                } else {
+                    MODAL.innerHTML = "";
+                    MODAL.appendChild(
+                        elementCreator("h1", "ROCK BREAKS SCISSORS. YOU WIN!!!")
+                    );
+                    MODAL.appendChild(PLAYAGAIN);
+                } else if (choice2 === "paper") {
                     // paper wins
                     computerScore.innerHTML =
                         parseInt(computerScore.innerHTML) + 1;
-                    console.log(computerScore);
-                    return "PAPER WRAP ROCK. TRY AGAIN";
+                    MODAL.innerHTML = "";
+                    MODAL.appendChild(
+                        elementCreator("h1", "PAPER WRAP ROCK. TRY AGAIN")
+                    );
+                    MODAL.appendChild(PLAYAGAIN);
                 }
             }
             if (choice1 === "paper") {
                 if (choice2 === "rock") {
                     // paper wins
                     playerScore.innerHTML = parseInt(playerScore.innerHTML) + 1;
-                    return "PAPER WRAP ROCK. YOU WIN!!!";
-                } else {
+                    MODAL.innerHTML = "";
+                    MODAL.appendChild(
+                        elementCreator("h1", "PAPER WRAP ROCK. YOU WIN!!!")
+                    );
+                    MODAL.appendChild(PLAYAGAIN);
+                } else if (choice2 === "scissors") {
                     computerScore.innerHTML =
                         parseInt(computerScore.innerHTML) + 1;
-                    return "SCISSORS CUT PAPER. TRY AGAIN";
+                    MODAL.innerHTML = "";
+                    MODAL.appendChild(
+                        elementCreator("h1", "SCISSORS CUT PAPER. TRY AGAIN")
+                    );
+                    MODAL.appendChild(PLAYAGAIN);
                 }
             }
 
             if (choice1 === "scissors") {
-                if (choice === "rock") {
+                if (choice2 === "rock") {
                     // rock win
                     computerScore.innerHTML =
                         parseInt(computerScore.innerHTML) + 1;
-                    return "ROCK BREAKS SCISSORS. TRY AGAIN";
-                } else {
+                    MODAL.innerHTML = "";
+                    MODAL.appendChild(
+                        elementCreator("h1", "ROCK BREAKS SCISSORS. TRY AGAIN")
+                    );
+                    MODAL.appendChild(PLAYAGAIN);
+                } else if (choice2 === "paper") {
                     playerScore.innerHTML = parseInt(playerScore.innerHTML) + 1;
-                    return "SCISSORS CUT PAPER. YOU WIN!!!";
+                    MODAL.innerHTML = "";
+                    MODAL.appendChild(
+                        elementCreator("h1", "SCISSORS CUT PAPER. YOU WIN!!!")
+                    );
+                    MODAL.appendChild(PLAYAGAIN);
                 }
             }
         };
-        console.log(compare(PLAYER1PICK, COMPUTERPICK));
+        compare(PLAYER1PICK, COMPUTERPICK);
     }
     PLAYBTN.addEventListener("click", function() {
         play();
+        OVERLAY.style.display = "block";
     });
     const REFRESH = document.querySelector(".fa fa-refresh fa-spin");
-    // REFRESH.addEventListener("click", function() {
-    //     console.log("Saida");
-    // });
+
+    PLAYAGAIN.addEventListener("click", function() {
+        OVERLAY.style.display = "none";
+        PICKBTNS.appendChild(active).style.width = "100px";
+        active.style.height = "100px";
+        COMPUTERPICKBOX.appendChild(computerRandomPick).style.width = "100px";
+        computerRandomPick.style.height = "100px";
+    });
+
+    // element creator function
+    function elementCreator(element, text) {
+        var e = document.createElement(element);
+        e.innerHTML = text;
+        return e;
+    }
 });
