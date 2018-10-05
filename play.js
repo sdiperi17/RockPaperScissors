@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const COMPUTERSCISSORS = document.querySelector("#computer-scissors");
 
     const COMPUTERBOARD = document.querySelector(".plyr2");
-
+    console.log("test");
     const PLAYBTN = document.querySelector(".start-game-btn");
 
     function play() {
