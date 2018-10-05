@@ -14,8 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let PLAYER1PICK;
     let COMPUTERPICK;
 
-    let lose;
+    let playerScore = document.getElementById("player1-score");
+    let computerScore = document.getElementById("player2-score");
 
+    console.log(playerScore);
     ROCK.addEventListener("click", function() {
         if (!active) {
             active = ROCK;
@@ -23,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
             BOARD.appendChild(ROCK).style.height = "200px";
             PLAYER1PICK = "rock";
         } else {
-            PICKBTNS.appendChild(active);
+            PICKBTNS.appendChild(active).style.width = "100px";
+            PICKBTNS.appendChild(active).style.height = "100px";
             active = ROCK;
             BOARD.appendChild(ROCK).style.width = "200px";
             BOARD.appendChild(ROCK).style.height = "200px";
@@ -37,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function() {
             BOARD.appendChild(PAPER).style.height = "200px";
             PLAYER1PICK = "paper";
         } else {
-            PICKBTNS.appendChild(active);
+            PICKBTNS.appendChild(active).style.width = "100px";
+            PICKBTNS.appendChild(active).style.height = "100px";
             active = PAPER;
             BOARD.appendChild(PAPER).style.width = "200px";
             BOARD.appendChild(PAPER).style.height = "200px";
@@ -51,7 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
             BOARD.appendChild(SCISSORS).style.height = "200px";
             PLAYER1PICK = "scissors";
         } else {
-            PICKBTNS.appendChild(active);
+            PICKBTNS.appendChild(active).style.width = "100px";
+            PICKBTNS.appendChild(active).style.height = "100px";
             active = SCISSORS;
             BOARD.appendChild(SCISSORS).style.width = "200px";
             BOARD.appendChild(SCISSORS).style.height = "200px";
@@ -95,17 +100,25 @@ document.addEventListener("DOMContentLoaded", function() {
             if (choice1 === "rock") {
                 if (choice2 === "scissors") {
                     // rock wins
+                    playerScore.innerHTML = parseInt(playerScore.innerHTML) + 1;
+                    console.log(playerScore);
                     return "ROCK BREAKS SCISSORS. YOU WIN!!!";
                 } else {
                     // paper wins
+                    computerScore.innerHTML =
+                        parseInt(computerScore.innerHTML) + 1;
+                    console.log(computerScore);
                     return "PAPER WRAP ROCK. TRY AGAIN";
                 }
             }
             if (choice1 === "paper") {
                 if (choice2 === "rock") {
                     // paper wins
+                    playerScore.innerHTML = parseInt(playerScore.innerHTML) + 1;
                     return "PAPER WRAP ROCK. YOU WIN!!!";
                 } else {
+                    computerScore.innerHTML =
+                        parseInt(computerScore.innerHTML) + 1;
                     return "SCISSORS CUT PAPER. TRY AGAIN";
                 }
             }
@@ -113,8 +126,11 @@ document.addEventListener("DOMContentLoaded", function() {
             if (choice1 === "scissors") {
                 if (choice === "rock") {
                     // rock win
+                    computerScore.innerHTML =
+                        parseInt(computerScore.innerHTML) + 1;
                     return "ROCK BREAKS SCISSORS. TRY AGAIN";
                 } else {
+                    playerScore.innerHTML = parseInt(playerScore.innerHTML) + 1;
                     return "SCISSORS CUT PAPER. YOU WIN!!!";
                 }
             }
